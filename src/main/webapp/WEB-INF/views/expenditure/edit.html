@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Expenditure</title>
+</head>
+<body>
+<h1>Delete Expenditure</h1>
+<p>
+    <a href="/expenditures">Expenditure List</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-expenditure}" th:object="${expenditure}" method="post"
+      novalidate="novalidate" enctype="multipart/form-data">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td> Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" th:field="*{price}"/></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td><input type="text" th:field="*{description}"/></td>
+        </tr>
+        <tr>
+            <td>List Spend:</td>
+            <td><input type="text" th:field="*{listSpend}"/></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td> <input type="file" th:field="*{image}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Edit Expenditure"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
